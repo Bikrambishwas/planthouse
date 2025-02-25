@@ -1,0 +1,160 @@
+/* .vertical-layout.vertical-menu-modern.menu-expanded .main-menu .navigation li.has-sub > a:after {
+   top: 45px !important;
+} */
+
+.offcanvas-end {
+    width: 35% !important;
+}
+
+div.table-responsive > div.dataTables_wrapper > div.row {
+    padding: 0px 17px;
+}
+
+.invalid-feedback {
+    display: block;
+    color: rgb(247, 67, 67);
+    font-size: 13px;
+}
+
+.toast {
+    z-index: 99999999999999999 !important;
+}
+
+.dashed-box {
+    border: 2px dashed #ccc;
+    height: 200px;
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.dashed-box img {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.dis-non {
+    display: none;
+}
+
+.nested-sortable ul {
+    list-style-type: none;
+    padding-left: 20px;
+    /* Ensure ul has a minimum height and width for better dragging */
+    min-height: 20px;
+    position: relative;
+}
+
+.nested-sortable li {
+    margin-bottom: 5px;
+    margin-top: 8px;
+    /* Ensure li has enough padding to be draggable */
+    padding: 5px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: move; /* Change cursor to 'move' to indicate draggable */
+    min-height: 20px;
+    max-width: 382px;
+}
+
+.item-details {
+    border-top: none;
+    padding: 10px;
+    background-color: #f1f1f1;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease, padding 0.3s ease;
+}
+
+.item-details.expanded {
+    height: auto;
+    padding: 10px;
+    max-width: 382px !important;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+.item-details.collapsed {
+    height: 0;
+    padding: 0 10px;
+}
+
+.item-details label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.item-details .move-options a,
+.item-details .original a,
+.item-details .remove-cancel a {
+    display: inline-block;
+    margin-right: 10px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.original {
+    margin-top: 10px;
+}
+
+.item-details .remove-cancel {
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.sub-item {
+    font-size: 0.9em;
+    color: gray;
+    margin-left: 5px;
+}
+
+.nested-sortable li.dragging .item-header {
+    opacity: 0.5;
+    /* Apply styles to indicate dragging */
+}
+
+.g-10 {
+    gap: 10px;
+}
+
+.g-20 {
+    gap: 20px;
+}
+
+
+.loading {
+    z-index: 20;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0; /* Changed from -5px to 0 */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-content {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
