@@ -86,7 +86,7 @@
 
                          <img class="img-responsive" src="" alt="">
                      </span>
-                     <h2 class="brand-text">Mindworks Media</h2>
+                     <h2 class="brand-text">Plant House</h2>
                  </a></li>
              <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i
                          class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
@@ -120,12 +120,15 @@
                 </ul>
             </li> --}}
              <li><a class="@if (Route::is('admin.category')) active @endif" href="{{ route('admin.category') }}">
-                     <i class="fa-solid fa-chart-simple"></i> Projects</a>
+                     <i class="fa-solid fa-chart-simple"></i> Category</a>
+             </li>
+             <li><a class="@if (Route::is('admin.product')) active @endif" href="{{ route('admin.product') }}">
+                <i class="fa-solid fa-chart-simple"></i> Products</a>
              </li>
              <li><a class="@if (Route::is('admin.page')) active @endif" href="{{ route('admin.page') }}">
                      <i class="fa-regular fa-file"></i> Pages</a>
              </li>
-           
+
              {{-- <li class="menu-item ">
                  <a href="javascript:void(0)" class="menu-link menu-toggle">
                      <div>Account Settings</div>
@@ -138,7 +141,7 @@
                      </li>
                  </ul>
              </li> --}}
-            
+
              @php
                  $mid = count($all_menus) == 0 ? 0 : $menuid;
                  $menuUrl = route('admin.menu', ['id' => $mid]);
@@ -146,7 +149,7 @@
              <li><a class="@if (Route::is($menuUrl)) active @endif" href="{{ $menuUrl }}">
                      <i class="fa-solid fa-bars"></i> Menu</a>
              </li>
-          
+
              <li><a class="@if (Route::is('admin.sitesetting')) active @endif" href="{{ route('admin.sitesetting') }}">
                      <i class="fa-solid fa-gear"></i> Sitesettings</a>
              </li>

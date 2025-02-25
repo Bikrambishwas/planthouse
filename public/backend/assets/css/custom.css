@@ -131,30 +131,86 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     gap: 20px;
 }
 
+.sorting-boxs {
+    display: grid;
+    cursor: grab;
+    grid-template-columns: 40px 1fr 100px;
+    margin-bottom: 5px;
+    padding: 5px;
+    box-shadow: -1px 10px 26px -9px rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: -1px 10px 26px -9px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: -1px 10px 26px -9px rgba(0, 0, 0, 0.06);
+}
 
-.loading {
-    z-index: 20;
-    position: fixed; /* Changed from absolute to fixed */
-    top: 0;
-    left: 0; /* Changed from -5px to 0 */
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex; /* Use flexbox to center the content */
-    justify-content: center;
+.sorting-boxs div {
+    display: flex;
     align-items: center;
 }
 
-.loading-content {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+
+.sorting-boxs-option-outer {
+    margin-left: 50px;
+    padding-left: 20px;
+    border-left: 1px solid var(--hover);
 }
+
+.sorting-boxs-option-box {
+    display: grid;
+    cursor: grab;
+    grid-template-columns: 40px 1fr 100px;
+    margin-bottom: 5px;
+    padding: 5px;
+    box-shadow: -1px 10px 26px -9px rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: -1px 10px 26px -9px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: -1px 10px 26px -9px rgba(0, 0, 0, 0.06);
+}
+
+.sorting-boxs-outer {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    padding: 25px;
+    background: #ffffff;
+}
+
+.sorting-boxs-outer:hover {
+    transform: translate(-0.1rem, -1ex);
+    transition: all 0.5s ease-in-out;
+}
+
+
+.cat-menu {
+    list-style: none;
+    margin: 5px 0px;
+}
+.ad-btn {
+    background: #938cd0;
+    padding: 4px 8px;
+    color: white !important;
+}
+
+.ad-btn:hover {
+    background: #7165dd;
+    padding: 4px 8px;
+    color: white !important;
+}
+.rem-btn {
+    background: #ff9898;
+    padding: 4px 8px;
+    color: white !important;
+    width: 25px;
+}
+
+.rem-btn:hover {
+    background: red;
+    padding: 4px 8px;
+    color: white !important;
+    width: 25px;
+}
+
+

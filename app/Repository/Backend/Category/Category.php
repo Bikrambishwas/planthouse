@@ -20,6 +20,23 @@ class Category implements CategoryInterface
         return Categories::find($id);
     }
 
+    public function get_parents()
+    {
+        $parents = [];
+        $rows = Categories::where('parent', '=', '0')->get();
+        foreach ($rows as $k => $row) :
+            $parents[$row->id] = $row->title;
+        endforeach;
+        return $parents;
+    }
+
+
+    public function make_position($parent)
+    {
+        $total = Categories::where('parent', '=', $parent)->count();
+        return $total + 1;
+    }
+
     public function show($id)
     {
         return Categories::find($id);

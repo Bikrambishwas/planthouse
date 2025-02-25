@@ -6,9 +6,9 @@ interface CategoryInterface
 {
 
     public function all();
-
+    public function get_parents();
     public function get($id);
-
+    public function make_position($parent);
     public function show($id);
 
     public function store($data);
