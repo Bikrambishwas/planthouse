@@ -214,3 +214,16 @@ div.table-responsive > div.dataTables_wrapper > div.row {
 }
 
 
+.media-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.media-image-holder {
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    min-height: 150px;
+    position: relative;
+}
+

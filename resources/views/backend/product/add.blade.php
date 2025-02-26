@@ -35,6 +35,7 @@
                                 <span class="invalid-feedback title_error"></span>
                             </div>
                             <div class="col-md-6 mb-2">
+                                <div class="media-holder d-flex" id="featureImagePreview"></div>
                                 <label class="form-label">Image</label>
                                 <input type="file" class="form-control" name="image" placeholder="John Doe">
                                 <span class="invalid-feedback image_error"></span>
@@ -56,7 +57,9 @@
                             </h5>
 
                             <div class="col-md-12 mb-3">
-                                <input type="file" class="form-control" name="gallery_images" id="">
+                                <div class="media-holder d-flex flex-wrap gap-2 mb-2" id="imagePreview"></div>
+                                <input name="gallery_images[]" type="file" class="form-control"  id="galleryInput" multiple>
+                                <span id="fileCount"></span>
                             </div>
                         </div>
                     </div>
@@ -305,18 +308,18 @@
                             <div id="simple_product_section" class="row" style="display: none;">
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">MRP</label>
-                                    <input type="number" class="form-control" name="plans[0][marked_price]" placeholder="Enter MRP">
+                                    <input type="number" class="form-control" name="marked_price" placeholder="Enter MRP">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Selling Price</label>
-                                    <input type="number" class="form-control" name="plans[0][selling_price]" placeholder="Enter Selling Price">
+                                    <input type="number" class="form-control" name="selling_price" placeholder="Enter Selling Price">
                                 </div>
                             </div>
 
                             <!-- Variable Product Section -->
                             <div id="variable_product_section" style="display: none;">
                                 <h5 style="margin-left: 23px">Size - Marked Price - Selling Price - Image</h5>
-                                <div class="card main-card" style="box-shadow: 0 4px 24px rgba(34, 41, 47, 0.1) !important;">
+                                <div class="card main-card" style="box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important;">
                                     <div class="card-body main-card-body">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -383,6 +386,9 @@
                                 <button type="button" class="btn btn-primary mt-1" onclick="addMoreCard(event)">
                                     <i class="fa-regular fa-plus"></i> Add More
                                 </button>
+
+
+
                             </div>
                     </div>
                 </div>
@@ -451,7 +457,10 @@
                     <h5 class="card-header">Keywords</h5>
                     <div class="card-body">
                          <div class="row mx-auto">
-                            <input type="text" class="form-control select2">
+                            <select class="select2 form-select" name="keywords[]" style="width: 100%;"  multiple="multiple">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                            </select>
                             <div class="sub-text">Please select or type the keywords</div>
                          </div>
                     </div>
@@ -462,6 +471,8 @@
 
     <script src="{{ asset('backend/assets/js/summernote-lite.min.js') }}"></script>
     <script>
+
+
         $(".editor").each(function(el) {
             var $this = $(this);
             var buttons = $this.data("buttons");
@@ -542,7 +553,7 @@
                         const toast = new bootstrap.Toast('.success-toast')
                         toast.show();
                         setTimeout(function() {
-                            window.location.href = '{{ route('admin.page') }}';
+                            window.location.href = '{{ route('admin.product') }}';
                         }, 1000);
                         // toastr.success('download added sucessfully');
                     }
@@ -653,9 +664,125 @@ function removeCard(button) {
     card.remove();
 }
 
-$(document).ready(function() {
-    $('.select2').select2();
+
+// $(document).ready(function () {
+//     $('#galleryInput').on('change', function () {
+//         const previewContainer = $('#imagePreview');
+//         previewContainer.empty(); // Clear previous previews
+
+//         Array.from(this.files).forEach(file => {
+//             if (file.type.startsWith('image/')) {
+//                 const reader = new FileReader();
+
+//                 reader.onload = function (e) {
+//                     const imageBlock = $(`
+//                         <div class="media-image-holder position-relative" style="width:150px; height:100px; border:1px solid #ccc; border-radius:8px; display:flex; justify-content:center; align-items:center;">
+//                             <img src="${e.target.result}" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+//                             <span class="inbtn inbtndelete" style="position:absolute; top: -10px; right: -10px; background:#f77f7fcf; color:white; padding:2px; cursor:pointer;">
+//                                 <i class="fa fa-times fa-fw"></i>
+//                             </span>
+//                         </div>
+//                     `);
+
+//                     // Remove image preview on delete icon click
+//                     imageBlock.find('.inbtndelete').on('click', function () {
+//                         imageBlock.remove();
+//                     });
+
+//                     previewContainer.append(imageBlock);
+//                 };
+
+//                 reader.readAsDataURL(file); // Convert image to base64 for preview
+//             }
+//         });
+//     });
+// });
+
+
+
+$(document).ready(function () {
+    let selectedFiles = [];
+
+    $('#galleryInput').on('change', function (e) {
+        const newFiles = Array.from(e.target.files);
+        const fileInput = $(this)[0];
+
+        // Append new files to selectedFiles array
+        newFiles.forEach(file => {
+            if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                selectedFiles.push(file);
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const imageBlock = $(`
+                        <div class="media-image-holder position-relative" style="width:150px; height:100px; border:1px solid #ccc; border-radius:8px; display:flex; justify-content:center; align-items:center;">
+                            <img src="${e.target.result}" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+                            <span class="inbtn inbtndelete" style="position:absolute; top:-10px; right:-10px; background:#f77f7fcf; color:white; padding:2px; cursor:pointer;">
+                                <i class="fa fa-times fa-fw"></i>
+                            </span>
+                        </div>
+                    `);
+
+                    // Remove preview and update selected files list
+                    imageBlock.find('.inbtndelete').on('click', function () {
+                        selectedFiles = selectedFiles.filter(f => f.name !== file.name || f.size !== file.size);
+                        imageBlock.remove();
+                        updateFileInput();
+                    });
+
+                    $('#imagePreview').append(imageBlock);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        updateFileInput();
+    });
+
+    // Function to update file input with selected files
+    function updateFileInput() {
+        const dataTransfer = new DataTransfer();
+        selectedFiles.forEach(file => dataTransfer.items.add(file));
+        $('#galleryInput')[0].files = dataTransfer.files;
+
+        // Update file count display
+        $('#fileCount').text(`${selectedFiles.length} files selected`);
+    }
 });
+
+
+
+$(document).ready(function () {
+    $('#featureImageInput').on('change', function (e) {
+        const file = e.target.files[0];
+
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const imageBlock = $(`
+                    <div class="media-image-holder position-relative" style="width:150px; height:150px; border:1px solid #ccc; border-radius:8px; overflow:hidden; display:flex; justify-content:center; align-items:center;">
+                        <img src="${e.target.result}" alt="Feature Image" style="width:100%; height:100%; object-fit:cover;">
+                        <span class="inbtn inbtndelete" style="position:absolute; top:-10px; right:-10px; background:red; color:white; border-radius:50%; padding:4px; cursor:pointer;">
+                            <i class="fa fa-times fa-fw"></i>
+                        </span>
+                    </div>
+                `);
+
+                // Remove feature image preview and reset input
+                imageBlock.find('.inbtndelete').on('click', function () {
+                    imageBlock.remove();
+                    $('#featureImageInput').val('');
+                });
+
+                $('#featureImagePreview').html(imageBlock); // Replace previous image
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+});
+
+
 
     </script>
 @endsection

@@ -12,7 +12,7 @@
     <meta name="keywords"
         content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web Admin/app">
     <meta name="author" content="PIXINVENT">
-    <title>Mindwork Media Dashboard</title>
+    <title>Plant House Dashboard</title>
     {{-- Links --}}
     @include('backend.inc.Links')
     {{-- END:SCRIPT --}}
