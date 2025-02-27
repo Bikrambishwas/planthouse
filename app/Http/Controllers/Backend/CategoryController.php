@@ -41,7 +41,8 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'slug' => '',
-            'parent' => 'required|numeric'
+            'parent' => 'required|numeric',
+            'image' => ''
         ]);
         //VALIDATION FAIL
         if ($validator->fails()) {
@@ -66,6 +67,17 @@ class CategoryController extends Controller
 
          }
 
+         if ($request['image'] != null) {
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $original_name = preg_replace('/\s+/', '-', $image->getClientOriginalName());
+                $without_ext = preg_replace('/\\.[^.\\s]{3,4}$/', '', $original_name);
+                $pure_name = preg_replace('/[^A-Za-z0-9\-]/', '', $without_ext);
+                $filename = $pure_name . '-' . config('app.name') . '-' . time() . '.' . $extension;
+                $image->move(public_path('uploads/category_images'), $filename);
+                $validatedData['image'] = $filename;
+          }
+
         $this->category->store($validatedData);
         return response()->json(['message' => 'Category has been added successfully']);
     }
@@ -73,10 +85,11 @@ class CategoryController extends Controller
     public function update($id, Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'slug' => 'required|unique:features,slug,' . $id ,
+            'slug' => '',
             'title' => 'required',
             'parent' => 'required',
             'position' => '',
+            'image' => ''
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -87,6 +100,18 @@ class CategoryController extends Controller
         }
         $requestobj = $validator;
         $validatedData = $requestobj->validated();
+        if ($request->id) {
+            if ($request['image'] != null) {
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalExtension();
+                $original_name = preg_replace('/\s+/', '-', $image->getClientOriginalName());
+                $without_ext = preg_replace('/\\.[^.\\s]{3,4}$/', '', $original_name);
+                $pure_name = preg_replace('/[^A-Za-z0-9\-]/', '', $without_ext);
+                $filename = $pure_name . '-' . config('app.name') . '-' . time() . '.' . $extension;
+                $image->move(public_path('uploads/category_images'), $filename);
+                $validatedData['image'] = $filename;
+              }
+           }
         $this->category->update($id, $validatedData);
         return response()->json(['message' => 'Category has been updated successfully']);
     }

@@ -118,6 +118,14 @@
                                 <div class="form-text">Choose Parent</div>
                                 <span class="invalid-feedback parent_error"></span>
                             </div>
+                            <div class="mb-2">
+                                <div class="dashed-box">
+                                    <img src="" id="preview-image" alt="Preview" style="max-width: 100%; height: auto;">
+                                </div>
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image-input" name="image">
+                                <span class="invalid-feedback image_error"></span>
+                            </div>
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary mt-2 d-grid w-100"
                                     id="liveToastBtn">submit</button>
@@ -157,7 +165,7 @@
                 </div>
 
                 <div class="mb-1">
-                    <label for="category_parent" class="form-label">Feature Parent
+                    <label for="category_parent" class="form-label">Parent
                     </label>
                     <select name="parent" class="form-control" id="category_parent">
                         <option value="0">Its Parent itself</option>
@@ -169,6 +177,15 @@
                         @endforeach
                     </select>
                     <span class="invalid-feedback parent_error"></span>
+                </div>
+                <div class="mb-1">
+                    <div class="dashed-box">
+                       <img src="" alt="" id="editshowimage" style="width: 120px; height: auto;">
+                    </div>
+                    <label for="category_image" class="form-label">Image
+                    </label>
+                    <input name="image" type="file" id="category_image" class="form-control" value="">
+                    <span class="invalid-feedback image_error"></span>
                 </div>
                 <input type="hidden" name="" value="" id="row_idcategory">
                 <div class="col-md-4">
@@ -183,6 +200,21 @@
     {{-- End of Edit section====================================================================================== --}}
     {{-- ====================================================================================================== --}}
     <script>
+     $(document).ready(function() {
+            $('.dashed-box').hide(); // Hide the dashed box initially
+
+            $('#image-input').on('change', function(event) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#preview-image').attr('src', e.target.result).show(); // Set image src and make it visible
+                    $('.dashed-box').fadeIn(); // Smoothly show the dashed box
+                };
+                if (event.target.files.length > 0) {
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            });
+        });
+
         $('#addcategory').submit(function(e) {
             e.preventDefault();
             data = new FormData();
@@ -251,6 +283,15 @@
                         $("#category_parent").val(result.row.parent);
                         $("#category_position").val(result.row.position);
                         $("#row_idcategory").val(result.row.id);
+                        if (result.row.image != null) {
+                            $('.dashed-box').show();
+                            $("#editshowimage").attr('src', 'http://127.0.0.1:8000/uploads/category_images/' +
+                            result.row
+                            .image);
+                        } else {
+                            $('.dashed-box').hide();
+                        }
+
                     }
                 });
             });
@@ -352,7 +393,7 @@
             });
             $.ajax({
                 type: 'POST',
-                url: '/admin/category/edit/' + category_id,
+                url: '/admin/category/update/' + category_id,
                 data: new FormData(this),
                 contentType: false,
                 processData: false,

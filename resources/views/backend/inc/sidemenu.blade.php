@@ -128,7 +128,9 @@
              <li><a class="@if (Route::is('admin.page')) active @endif" href="{{ route('admin.page') }}">
                      <i class="fa-regular fa-file"></i> Pages</a>
              </li>
-
+             <li><a class="@if (Route::is('admin.blog')) active @endif" href="{{ route('admin.blog') }}">
+                <i class="fa-regular fa-file"></i> Blogs</a>
+             </li>
              {{-- <li class="menu-item ">
                  <a href="javascript:void(0)" class="menu-link menu-toggle">
                      <div>Account Settings</div>

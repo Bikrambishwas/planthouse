@@ -11,7 +11,7 @@ class Categories extends Model
     use HasFactory;
     protected $table = 'categories';
     protected $fillable = [
-          'title','slug','short_description','parent','seo_title','seo_description'
+          'title','slug','short_description','parent','seo_title','seo_description','image'
     ];
 
     protected static function boot()

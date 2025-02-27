@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AccountController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\LoginController;
@@ -81,6 +82,15 @@ Route::get('/', function () {
   Route::get('product/edit/{id}',[ProductController::class, 'edit'])->name('product.edit');
   Route::post('product/update/{id}',[ProductController::class, 'update'])->name('product.update');
   Route::get('product/delete/{id}',[ProductController::class, 'destroy'])->name('product.delete');
+
+
+  // pages
+    Route::get('blog',[BlogController::class, 'index'])->name('blog');
+    Route::get('blog/add',[BlogController::class, 'add'])->name('blog.add');
+    Route::post('blog/create',[BlogController::class, 'store'])->name('blog.store');
+    Route::get('blog/edit/{id}',[BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('blog/update/{id}',[BlogController::class, 'update'])->name('blog.update');
+    Route::get('blog/delete/{id}',[BlogController::class, 'destroy'])->name('blog.delete');
 
   });
 
