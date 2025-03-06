@@ -30,6 +30,15 @@ Route::get('/', function () {
     return view('frontend.pages.home');
 });
 
+Route::get('/collection', function () {
+    return view('frontend.pages.collection');
+});
+
+Route::get('/singleproduct', function () {
+    return view('frontend.pages.singleproduct');
+});
+
+
 
 
   //ADMIN

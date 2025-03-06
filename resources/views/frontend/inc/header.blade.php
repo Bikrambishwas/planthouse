@@ -11,14 +11,13 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/vendor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/style.css') }}">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/custom.css') }}">
 
   </head>
   <body>
@@ -88,15 +87,16 @@
     </div>
 
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
-      <div class="offcanvas-header justify-content-center">
+      <div class="offcanvas-header justify-content-between">
+        <h3 class="text-primary">CART</h3>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <div class="order-md-last">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
+          {{-- <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-primary">Your cart</span>
             <span class="badge bg-primary rounded-pill">3</span>
-          </h4>
+          </h4> --}}
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
@@ -274,17 +274,17 @@
             </button>
           </div>
 
-          <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
-            <div class="search-bar row bg-light p-2 rounded-4">
-              <div class="col-md-4 d-none d-md-block">
+          <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-2">
+            <div class="search-bar row bg-light rounded-4">
+              {{-- <div class="col-md-4 d-none d-md-block">
                 <select class="form-select border-0 bg-transparent">
                   <option>All Categories</option>
                   <option>Groceries</option>
                   <option>Drinks</option>
                   <option>Chocolates</option>
                 </select>
-              </div>
-              <div class="col-11 col-md-7">
+              </div> --}}
+              <div class="col-11 col-md-10">
                 <form id="search-form" class="text-center" action="index.html" method="post">
                   <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
                 </form>
@@ -294,29 +294,30 @@
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4">
+          @php
+            $mainrow = get_menu();
+          @endphp
+          <div class="col-lg-6">
             <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
-              <li class="nav-item active">
-                <a href="index.html" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
-                  <li><a href="index.html" class="dropdown-item">About Us </a></li>
-                  <li><a href="index.html" class="dropdown-item">Shop </a></li>
-                  <li><a href="index.html" class="dropdown-item">Single Product </a></li>
-                  <li><a href="index.html" class="dropdown-item">Cart </a></li>
-                  <li><a href="index.html" class="dropdown-item">Checkout </a></li>
-                  <li><a href="index.html" class="dropdown-item">Blog </a></li>
-                  <li><a href="index.html" class="dropdown-item">Single Post </a></li>
-                  <li><a href="index.html" class="dropdown-item">Styles </a></li>
-                  <li><a href="index.html" class="dropdown-item">Contact </a></li>
-                  <li><a href="index.html" class="dropdown-item">Thank You </a></li>
-                  <li><a href="index.html" class="dropdown-item">My Account </a></li>
-                  <li><a href="index.html" class="dropdown-item">404 Error </a></li>
-                </ul>
-              </li>
+                @if ($mainrow != null)
+                    @foreach ($mainrow as $item)
+                        <li class="nav-item active">
+                            @if (empty($item->children))
+                                <a href="{{ $item->url }}" class="nav-link">{{ $item->title }}</a>
+                            @else
+                                <a class="nav-link dropdown-toggle pe-3" role="button" id="{{ $item->position }}" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                            @endif
+                            @if (!empty($item->children))
+                                <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="{{ $item->position }}">
+                                    @foreach ($item->children as $child)
+                                       <li><a href="{{ $child->url }}" class="dropdown-item">{{ $child->title }} </a></li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+
+                    @endforeach
+                @endif
             </ul>
           </div>
 

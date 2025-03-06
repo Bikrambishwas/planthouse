@@ -29,6 +29,7 @@
                                 <th style="width: 50px">SN</th>
                                 <th style="width: 120px">Image</th>
                                 <th>Title</th>
+                                <th style="width: 150px">Feature It</th>
                                 <th style="width: 100px">Status</th>
                                 <th style="width: 100px">Actions</th>
                             </tr>
@@ -42,6 +43,15 @@
                                             alt="{{ $item->title }}"></td>
                                     <td>
                                         {{ $item->title }}
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input toggle-switch" type="checkbox" id="flexSwitchCheckDefault-{{ $item->id }}" data-id="{{ $item->id }}"
+            {{ $item->to_show == '1' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="flexSwitchCheckDefault-{{ $item->id }}"></label>
+                                            </div>
+                                        </label>
                                     </td>
                                     @if ($item->status == 'Active')
                                         <td><span class="btn btn-success btn-sm">Active</span></td>

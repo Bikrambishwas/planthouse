@@ -13,8 +13,9 @@ This is main CSS file that contains custom style rules used in this template
 /*--------------------------------------------------------------
 /** VARIABLES
 --------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body {
-  --heading-font        : "Inter", sans-serif;
+  --heading-font        : "Josefin Sans", sans-serif;
   --bs-link-color: #333;
   --bs-link-hover-color:#333;
 
@@ -23,7 +24,7 @@ body {
 
   --bs-light-rgb: 248, 248, 248;
 
-  --bs-font-sans-serif: "Inter", sans-serif;
+  --bs-font-sans-serif: "Josefin Sans", sans-serif;
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -363,8 +364,8 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 0.5rem;
 }
 .product-item .button-area {
-  display: none;
-  position: absolute;
+  display: block;
+  /* position: absolute; */
   text-align: center;
   background: #fff;
   width: 100%;
@@ -375,7 +376,7 @@ input[type=number]::-webkit-outer-spin-button {
   /* transition: box-shadow 0.3s ease-out; */
 }
 .product-item {
-  position: relative;
+  /* position: relative; */
   padding: 16px;
   background: #FFFFFF;
   border-radius: 16px;
@@ -435,6 +436,22 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: -140px;
   margin-bottom: -140px;
 }
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 15px !important;
+}
+
+.search-bar {
+    border: 1px solid #969696;
+    padding: 4px 10px;
+}
+
+.offcanvas {
+    width: 480px !important;
+}
+
 @media screen and (max-width:991px) {
   .image-float {
     margin: 0;

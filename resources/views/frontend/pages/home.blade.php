@@ -185,9 +185,7 @@
 
       <div class="row">
         <div class="col-md-12">
-
           <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
-
             <div class="col">
               <div class="product-item">
                 <figure>
