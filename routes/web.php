@@ -38,6 +38,14 @@ Route::get('/singleproduct', function () {
     return view('frontend.pages.singleproduct');
 });
 
+Route::get('/blogs', function () {
+    return view('frontend.pages.blog');
+});
+
+Route::get('/offer', function () {
+    return view('frontend.pages.offer');
+});
+
 
 
 

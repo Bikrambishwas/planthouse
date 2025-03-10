@@ -261,11 +261,10 @@
     <header>
       <div class="container-fluid">
         <div class="row py-3 border-bottom">
-
           <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
             <div class="d-flex align-items-center my-3 my-sm-0">
               <a href="index.html">
-                <img src="{{ asset('frontend/assets/images/logo.svg') }}" alt="logo" class="img-fluid">
+                <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo" class="img-fluid">
               </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

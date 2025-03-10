@@ -138,6 +138,72 @@
     border-bottom: 1px solid #c5c5c5;
 }
 
+.list-social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-inline-start: -1rem;
+}
+
+.social-sharing {
+    padding: 0 32px;
+}
+
+.list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.link-with-icon {
+    background-image: none;
+    display: inline-flex
+;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.link--text {
+    color: rgb(var(--color-foreground));
+}
+
+
+.link {
+    font-family: inherit;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    background-image: linear-gradient(to top, rgb(var(--color-border)) 0px 0px), linear-gradient(to top, transparent 0px, transparent 0px);
+    background-repeat: no-repeat;
+    background-position: right bottom, right bottom;
+    background-size: 0% .1rem, 100% .1rem;
+    transition-property: background-size;
+    transition-timing-function: ease;
+    transition-duration: var(--duration-default);
+}
+
+
+.link-with-icon .icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-inline-end: 1rem;
+}
+
+.product-desc {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px;
+}
+
 @container (max-width: 660px) {
     .nav-button:not(:has(img)) {
         background-color: rgb(241, 235, 232);
