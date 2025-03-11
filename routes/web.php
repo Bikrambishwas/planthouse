@@ -9,6 +9,8 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SitesettingController;
+use App\Http\Controllers\Frontend\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\Frontend\Auth\RegisterController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +47,11 @@ Route::get('/blogs', function () {
 Route::get('/offer', function () {
     return view('frontend.pages.offer');
 });
+
+
+
+Route::get('/signin',[AuthLoginController::class, 'index'])->name('singin');
+Route::get('/signup',[RegisterController::class, 'index'])->name('singup');
 
 
 

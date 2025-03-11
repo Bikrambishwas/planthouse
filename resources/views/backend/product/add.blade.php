@@ -471,6 +471,15 @@
 
     <script src="{{ asset('backend/assets/js/summernote-lite.min.js') }}"></script>
     <script>
+        var $jq = jQuery.noConflict(); // Assign jQuery to a new variable
+
+        $jq(document).ready(function() {
+            $jq('.select2').select2({
+                tags: true,
+                tokenSeparators: [',']
+            });
+        });
+
 
 
         $(".editor").each(function(el) {
