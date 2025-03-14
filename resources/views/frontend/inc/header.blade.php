@@ -88,45 +88,143 @@
 
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
       <div class="offcanvas-header justify-content-between">
-        <h3 class="text-primary">CART</h3>
+        <h3 class="text-primary canvas-header">CART</h3>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div class="order-md-last">
+        <div class="order-md-last flex-grow-1">
           {{-- <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-primary">Your cart</span>
             <span class="badge bg-primary rounded-pill">3</span>
           </h4> --}}
-          <ul class="list-group mb-3">
+          {{-- <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">Growers cider</h6>
                 <small class="text-body-secondary">Brief description</small>
               </div>
               <span class="text-body-secondary">$12</span>
+               <div class="cart-product-container">
+                    <div>
+                        <a href="">
+                            <img src="" alt="">
+                        </a>
+                    </div>
+                    <div class="product-description">
+
+                    </div>
+               </div>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Fresh grapes</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Heinz tomato ketchup</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$5</span>
-            </li>
+
             <li class="list-group-item d-flex justify-content-between">
               <span>Total (USD)</span>
               <strong>$20</strong>
             </li>
-          </ul>
+          </ul> --}}
+          <ul class="eccart-pro-items item1">
+            <li>
+                <div class="sidecart_pro_img">
+                    <img src="https://admin.gamalaghar.com/storage/images/products/featured/1732765797_ASH06241.webp" class="main-image">
+                </div>
+                <div class="ec-pro-content">
+                    <a href="single-product-left-sidebar.html" class="cart_pro_title">Yellow Ceramic Pot</a>
+                    <dl>
+                        <div class="product-option">
+                            <dt>Select Plant Size: </dt>
+                            <dd>Small</dd>
+                        </div><div class="product-option">
+                            <dt>Select Planter: </dt>
+                            <dd>GroPot</dd>
+                        </div><div class="product-option">
+                            <dt>Color: </dt>
+                            <dd>Ivory</dd>
+                        </div>
+                    </dl>
+                    <dl class="quantity-wrapper">
+                        <dt><label for="Quantity-1" class="visually-hidden">Quantity</label>
+                            <quantity-input class="quantity-cart">
+                              <button class="quantity__button-cart" name="minus" type="button">
+                                <span class="visually-hidden">Decrease quantity for Jade Plant Mini</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-minus" fill="none" viewBox="0 0 10 2">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor"></path>
+          </svg>
+                              </button>
+                              <input class="quantity__input-cart" type="number" name="updates[]" value="1" min="0" aria-label="Quantity for Jade Plant Mini" id="Quantity-1" data-index="1">
+                              <button class="quantity__button-cart" name="plus" type="button">
+                                <span class="visually-hidden">Increase quantity for Jade Plant Mini</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-plus" fill="none" viewBox="0 0 10 10">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor"></path>
+          </svg>
+                              </button>
+                            </quantity-input>
+                        </dt>
+                        <div class="sub-total">
+                              <p>₹279</p>
+                        </div>
+                    </dl>
+                    <a href="#" class="remove" onclick="removeFromCart(548)">×</a>
+                </div>
+            </li>
+            <li>
+                <div class="sidecart_pro_img">
+                    <img src="https://admin.gamalaghar.com/storage/images/products/featured/1732765797_ASH06241.webp" class="main-image">
+                </div>
+                <div class="ec-pro-content">
+                    <a href="single-product-left-sidebar.html" class="cart_pro_title">Yellow Ceramic Pot</a>
+                    <dl>
+                        <div class="product-option">
+                            <dt>Select Plant Size: </dt>
+                            <dd>Small</dd>
+                        </div><div class="product-option">
+                            <dt>Select Planter: </dt>
+                            <dd>GroPot</dd>
+                        </div><div class="product-option">
+                            <dt>Color: </dt>
+                            <dd>Ivory</dd>
+                        </div>
+                    </dl>
+                    <dl class="quantity-wrapper">
+                        <dt><label for="Quantity-1" class="visually-hidden">Quantity</label>
+                            <quantity-input class="quantity-cart">
+                              <button class="quantity__button-cart" name="minus" type="button">
+                                <span class="visually-hidden">Decrease quantity for Jade Plant Mini</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-minus" fill="none" viewBox="0 0 10 2">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor"></path>
+          </svg>
+                              </button>
+                              <input class="quantity__input-cart" type="number" name="updates[]" value="1" min="0" aria-label="Quantity for Jade Plant Mini" id="Quantity-1" data-index="1">
+                              <button class="quantity__button-cart" name="plus" type="button">
+                                <span class="visually-hidden">Increase quantity for Jade Plant Mini</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-plus" fill="none" viewBox="0 0 10 10">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor"></path>
+          </svg>
+                              </button>
+                            </quantity-input>
+                        </dt>
+                        <div class="sub-total">
+                              <p>₹279</p>
+                        </div>
+                    </dl>
+                    <a href="#" class="remove" onclick="removeFromCart(548)">×</a>
+                </div>
+            </li>
+           </ul>
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+
         </div>
+        <div class="cart-footer py-3">
+            <div class="cart-sub-total">
+                <table class="table cart-table">
+                    <tbody>
+                        <tr>
+                            <td class="text-left">Total :</td>
+                            <td class="text-right primary-color total-price-guest" id="total-price-guest">1750</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          </div>
       </div>
     </div>
 

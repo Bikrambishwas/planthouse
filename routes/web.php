@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SitesettingController;
 use App\Http\Controllers\Frontend\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
+use App\Http\Controllers\Frontend\Dashboard\DashboardController as DashboardDashboardController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -53,7 +54,7 @@ Route::get('/offer', function () {
 Route::get('/signin',[AuthLoginController::class, 'index'])->name('singin');
 Route::get('/signup',[RegisterController::class, 'index'])->name('singup');
 
-
+Route::get('user/dashboard',[DashboardDashboardController::class, 'dashboard'])->name('user.dashboard');
 
 
   //ADMIN
