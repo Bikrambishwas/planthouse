@@ -153,7 +153,45 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                aria-expanded="false" aria-controls="collapseFour">
+                                                <span class="fw-bold">Categories</span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse"
+                                            aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 py-3" style="border: 1px solid #937f7f33">
+                                                        <nav class="menu-main">
+                                                            <ul>
+                                                                @foreach ($category_data as $index => $c_data)
+                                                                    @include('backend.menu.nested', [
+                                                                        'data' => $c_data,
+                                                                    ])
+                                                                @endforeach
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6 d-flex justify-content-start align-items-center">
+                                                        <small><a href="#" id="select-all-categories">Select
+                                                                All</a></small>
+                                                    </div>
+                                                    <div class="col-md-6 d-flex justify-content-end">
+                                                        <button type="button" id="add-categories"
+                                                            class="btn btn-outline-primary btn-sm align-item-center">Add
+                                                            To Menu</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -322,6 +360,20 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectAllCategoriesButton = document.querySelector('#select-all-categories');
+            if (selectAllCategoriesButton) {
+                selectAllCategoriesButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('input[name^="taxonomy_"]').forEach(checkbox => {
+                        checkbox.checked = true;
+                    });
+                });
+            } else {
+                console.error('Element with ID "select-all-categories" not found.');
+            }
+        });
+
 
         document.addEventListener('DOMContentLoaded', function() {
             const selectAllLink = document.getElementById('select-all-page');
@@ -479,6 +531,24 @@
             });
 
             // Event listener for adding posts
+            // Adding categories
+            document.querySelector('#add-categories').addEventListener('click', function() {
+                document.querySelectorAll('input[type="checkbox"]:checked').forEach(function(checkbox) {
+                    if (checkbox.name.startsWith('taxonomy_')) {
+                        var titleElement = checkbox.closest('label') ? checkbox.closest('label')
+                            .textContent.trim() : '';
+                        var url = checkbox.getAttribute('category-url');
+                        if (titleElement) {
+                            var li = createMenuItem(titleElement, 'category', url);
+                            appendMenuItemToMain(li);
+                        } else {
+                            console.error('Category title is missing.');
+                        }
+                    }
+                });
+                uncheckAllCheckboxes('input[type="checkbox"]');
+                initializeSortable();
+            });
 
 
             // Event listener for adding custom links

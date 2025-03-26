@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Categories;
 use App\Models\Admin\Menus;
 use App\Models\Admin\Pages;
 use Illuminate\Http\Request;
@@ -16,17 +17,16 @@ class MenuController extends Controller
         $menus = Menus::all();
         $MenuID = $id;
         $pages = Pages::select('id','title','url')->get();
+        $selectedIds = [];
+        $category_data = Categories::where('parent', 0)->with('children')->get();
         if ($id != 0) {
             $row = Menus::find($id);
             $menuStructure = unserialize($row->menu_structure);
             $menuStructure = json_decode($menuStructure, true);
-            // foreach ($menuStructure as $value) {
-            //     dd($value);
-            // }
-            return view('backend.menu.index',compact('menus','MenuID','row','menuStructure','pages'));
+            return view('backend.menu.index',compact('menus','MenuID','row','menuStructure','pages','category_data','selectedIds'));
         }
 
-        return view('backend.menu.index',compact('menus','MenuID','pages'));
+        return view('backend.menu.index',compact('menus','MenuID','pages','category_data','selectedIds'));
     }
 
 

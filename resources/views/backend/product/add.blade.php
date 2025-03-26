@@ -58,7 +58,8 @@
 
                             <div class="col-md-12 mb-3">
                                 <div class="media-holder d-flex flex-wrap gap-2 mb-2" id="imagePreview"></div>
-                                <input name="gallery_images[]" type="file" class="form-control"  id="galleryInput" multiple>
+                                <input name="gallery_images[]" type="file" class="form-control" id="galleryInput"
+                                    multiple>
                                 <span id="fileCount"></span>
                             </div>
                         </div>
@@ -304,92 +305,104 @@
                             </div>
                         </div> --}}
 
-                            <!-- Simple Product Section -->
-                            <div id="simple_product_section" class="row" style="display: none;">
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">MRP</label>
-                                    <input type="number" class="form-control" name="marked_price" placeholder="Enter MRP">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Selling Price</label>
-                                    <input type="number" class="form-control" name="selling_price" placeholder="Enter Selling Price">
-                                </div>
+                        <!-- Simple Product Section -->
+                        <div id="simple_product_section" class="row" style="display: none;">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">MRP</label>
+                                <input type="number" class="form-control" name="marked_price" placeholder="Enter MRP">
                             </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Selling Price</label>
+                                <input type="number" class="form-control" name="selling_price"
+                                    placeholder="Enter Selling Price">
+                            </div>
+                        </div>
 
-                            <!-- Variable Product Section -->
-                            <div id="variable_product_section" style="display: none;">
-                                <h5 style="margin-left: 23px">Size - Marked Price - Selling Price - Image</h5>
-                                <div class="card main-card" style="box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important;">
-                                    <div class="card-body main-card-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Title</label>
-                                                <input type="text" class="form-control" name="plans[0][title]" id="">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Marked Price</label>
-                                                <input type="text" class="form-control" name="plans[0][marked_price]" placeholder="Enter Marked Price">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Selling Price</label>
-                                                <input type="text" class="form-control" name="plans[0][selling_price]" placeholder="Enter Selling Price">
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <label class="form-label">Image</label>
-                                                <input type="file" class="form-control" name="plans[0][image]" placeholder="Rs 1200000">
-                                            </div>
+                        <!-- Variable Product Section -->
+                        <div id="variable_product_section" style="display: none;">
+                            <h5 style="margin-left: 23px">Size - Marked Price - Selling Price - Image</h5>
+                            <div class="card main-card"
+                                style="box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important;">
+                                <div class="card-body main-card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Title</label>
+                                            <input type="text" class="form-control" name="plans[0][title]"
+                                                id="">
                                         </div>
-                                        <div class="row mt-2">
-                                            <p class="card-title">Facilities</p>
-                                            <div class="facilities">
-                                                <div class="facility-row row">
-                                                    <div class="col-md-11">
-                                                        <div class="row">
-                                                            <div class="mb-2 col-md-6">
-                                                                <label class="form-label">Title</label>
-                                                                <input type="text" class="form-control" name="plans[0][facilities][0][title]"
+                                        <div class="col-md-6">
+                                            <label class="form-label">Marked Price</label>
+                                            <input type="text" class="form-control" name="plans[0][marked_price]"
+                                                placeholder="Enter Marked Price">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Selling Price</label>
+                                            <input type="text" class="form-control" name="plans[0][selling_price]"
+                                                placeholder="Enter Selling Price">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Image</label>
+                                            <input type="file" class="form-control" name="plans[0][image]"
+                                                placeholder="Rs 1200000">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <p class="card-title">Facilities</p>
+                                        <div class="facilities">
+                                            <div class="facility-row row">
+                                                <div class="col-md-11">
+                                                    <div class="row">
+                                                        <div class="mb-2 col-md-6">
+                                                            <label class="form-label">Title</label>
+                                                            <input type="text" class="form-control"
+                                                                name="plans[0][facilities][0][title]"
                                                                 placeholder="eg. Social Media Handling">
-                                                            </div>
-                                                            <div class="mb-2 col-md-6">
-                                                                <label class="form-label">Marked Price</label>
-                                                                <input type="text" class="form-control" name="plans[0][facilities][0][marked_price]"
+                                                        </div>
+                                                        <div class="mb-2 col-md-6">
+                                                            <label class="form-label">Marked Price</label>
+                                                            <input type="text" class="form-control"
+                                                                name="plans[0][facilities][0][marked_price]"
                                                                 placeholder="eg. Social Media Handling">
-                                                            </div>
-                                                            <div class="mb-2 col-md-6">
-                                                                <label class="form-label">Selling Price</label>
-                                                                <input type="text" class="form-control" name="plans[0][facilities][0][selling_price]"
+                                                        </div>
+                                                        <div class="mb-2 col-md-6">
+                                                            <label class="form-label">Selling Price</label>
+                                                            <input type="text" class="form-control"
+                                                                name="plans[0][facilities][0][selling_price]"
                                                                 placeholder="eg. Social Media Handling">
-                                                            </div>
-                                                            <div class="mb-2 col-md-6">
-                                                                <label class="form-label">Image</label>
-                                                                <input type="file" class="form-control" name="plans[0][facilities][0][image]"
+                                                        </div>
+                                                        <div class="mb-2 col-md-6">
+                                                            <label class="form-label">Image</label>
+                                                            <input type="file" class="form-control"
+                                                                name="plans[0][facilities][0][image]"
                                                                 placeholder="eg. Social Media Handling">
-                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-1 d-flex align-items-center" style="margin-top: 20px; gap:5px">
-                                                        <a onclick="addFacility(this)" class="dropdown-item add-facility-btn ad-btn">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                        </a>
-                                                        <a onclick="removeFacility(this)" class="dropdown-item rem-btn">
-                                                            <i class="fa-solid fa-xmark"></i>
-                                                        </a>
-                                                    </div>
+                                                </div>
+                                                <div class="col-md-1 d-flex align-items-center"
+                                                    style="margin-top: 20px; gap:5px">
+                                                    <a onclick="addFacility(this)"
+                                                        class="dropdown-item add-facility-btn ad-btn">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </a>
+                                                    <a onclick="removeFacility(this)" class="dropdown-item rem-btn">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="dynamic-addmore"></div>
-                                <button type="button" class="btn btn-primary mt-1" onclick="addMoreCard(event)">
-                                    <i class="fa-regular fa-plus"></i> Add More
-                                </button>
-
-
-
                             </div>
+
+                            <div class="dynamic-addmore"></div>
+                            <button type="button" class="btn btn-primary mt-1" onclick="addMoreCard(event)">
+                                <i class="fa-regular fa-plus"></i> Add More
+                            </button>
+
+
+
+                        </div>
                     </div>
                 </div>
                 <div class="card">
@@ -438,31 +451,34 @@
                 <div class="card mt-2">
                     <h5 class="card-header">Category</h5>
                     <div class="card-body">
-                         <div class="row">
+                        <div class="row">
                             <ul class="accounts">
                                 @foreach ($categories as $index => $item)
-                                    <li class="cat-menu"><label><input type="radio" name="category_id"> {{ $item->title }}</label>
+                                    <li class="cat-menu"><label><input type="radio" name="category_id">
+                                            {{ $item->title }}</label>
                                         <ul class="subaccounts">
                                             @foreach ($item->children as $child)
-                                                <li class="cat-menu"><label><input type="radio" name="category_id"> {{ $child->title }}</label></li>
+                                                <li class="cat-menu"><label><input type="radio" name="category_id">
+                                                        {{ $child->title }}</label></li>
                                             @endforeach
                                         </ul>
                                     </li>
                                 @endforeach
                             </ul>
-                         </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card mt-2">
                     <h5 class="card-header">Keywords</h5>
                     <div class="card-body">
-                         <div class="row mx-auto">
-                            <select class="select2 form-select" name="keywords[]" style="width: 100%;"  multiple="multiple">
+                        <div class="row mx-auto">
+                            <select class="select2 form-select" name="keywords[]" style="width: 100%;"
+                                multiple="multiple">
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
                             </select>
                             <div class="sub-text">Please select or type the keywords</div>
-                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -471,17 +487,6 @@
 
     <script src="{{ asset('backend/assets/js/summernote-lite.min.js') }}"></script>
     <script>
-        var $jq = jQuery.noConflict(); // Assign jQuery to a new variable
-
-        $jq(document).ready(function() {
-            $jq('.select2').select2({
-                tags: true,
-                tokenSeparators: [',']
-            });
-        });
-
-
-
         $(".editor").each(function(el) {
             var $this = $(this);
             var buttons = $this.data("buttons");
@@ -573,156 +578,156 @@
 
 
         $(document).ready(function() {
-        $('#product_type').change(function() {
-            const selectedType = $(this).val();
+            $('#product_type').change(function() {
+                const selectedType = $(this).val();
 
-            // Hide both sections initially
-            $('#simple_product_section, #variable_product_section').hide();
+                // Hide both sections initially
+                $('#simple_product_section, #variable_product_section').hide();
 
-            // Show based on selected type
-            if (selectedType === 'simple') {
-                $('#simple_product_section').show();
-            } else if (selectedType === 'variable') {
-                $('#variable_product_section').show();
-            }
+                // Show based on selected type
+                if (selectedType === 'simple') {
+                    $('#simple_product_section').show();
+                } else if (selectedType === 'variable') {
+                    $('#variable_product_section').show();
+                }
+            });
         });
-    });
 
 
 
-    let cardIndex = 0; // Initialize the card index
+        let cardIndex = 0; // Initialize the card index
 
-function addMoreCard(event) {
-    if (event) event.preventDefault();
+        function addMoreCard(event) {
+            if (event) event.preventDefault();
 
-    // Clone the main card
-    let mainCard = document.querySelector('.main-card').cloneNode(true);
-    let dynamicAddMore = document.querySelector('.dynamic-addmore');
+            // Clone the main card
+            let mainCard = document.querySelector('.main-card').cloneNode(true);
+            let dynamicAddMore = document.querySelector('.dynamic-addmore');
 
-    // Increment the card index
-    cardIndex++;
+            // Increment the card index
+            cardIndex++;
 
-    // Update name attributes for the cloned card
-    mainCard.querySelectorAll('input, select, textarea').forEach(element => {
-        let name = element.getAttribute('name');
-        if (name) {
-            let updatedName = name.replace(/\[\d+\]/, `[${cardIndex}]`);
-            element.setAttribute('name', updatedName);
-            element.value = ''; // Clear the value
+            // Update name attributes for the cloned card
+            mainCard.querySelectorAll('input, select, textarea').forEach(element => {
+                let name = element.getAttribute('name');
+                if (name) {
+                    let updatedName = name.replace(/\[\d+\]/, `[${cardIndex}]`);
+                    element.setAttribute('name', updatedName);
+                    element.value = ''; // Clear the value
+                }
+            });
+
+            // Reset the facilities for the new card
+            let facilities = mainCard.querySelector('.facilities');
+            facilities.innerHTML = facilities.firstElementChild.outerHTML; // Keep only the first row
+            facilities.querySelectorAll('input').forEach(input => input.value = '');
+
+            // Reset the facility index for this new card
+            mainCard.querySelectorAll('.add-facility-btn').forEach(btn => {
+                btn.setAttribute('data-fac-count', 0);
+            });
+
+            // Append the new card
+            dynamicAddMore.appendChild(mainCard);
         }
-    });
 
-    // Reset the facilities for the new card
-    let facilities = mainCard.querySelector('.facilities');
-    facilities.innerHTML = facilities.firstElementChild.outerHTML; // Keep only the first row
-    facilities.querySelectorAll('input').forEach(input => input.value = '');
+        function addFacility(button) {
+            let facilitiesContainer = button.closest('.facilities');
+            let facilityRows = facilitiesContainer.querySelectorAll('.facility-row');
+            let currentCount = parseInt(button.getAttribute('data-fac-count')) || 0;
 
-    // Reset the facility index for this new card
-    mainCard.querySelectorAll('.add-facility-btn').forEach(btn => {
-        btn.setAttribute('data-fac-count', 0);
-    });
+            let newIndx = currentCount + 1;
 
-    // Append the new card
-    dynamicAddMore.appendChild(mainCard);
-}
+            // Clone the last facility row
+            let newFacilityRow = facilityRows[facilityRows.length - 1].cloneNode(true);
 
-function addFacility(button) {
-    let facilitiesContainer = button.closest('.facilities');
-    let facilityRows = facilitiesContainer.querySelectorAll('.facility-row');
-    let currentCount = parseInt(button.getAttribute('data-fac-count')) || 0;
+            // Update the name attribute for the new row
+            newFacilityRow.querySelectorAll('input, textarea').forEach(input => {
+                let name = input.getAttribute('name');
+                if (name) {
+                    let updatedName = name.replace(/\[facilities\]\[\d+\]/, `[facilities][${newIndx}]`);
+                    input.setAttribute('name', updatedName);
+                    input.value = ''; // Clear the value
+                }
+            });
 
-    let newIndx = currentCount + 1;
+            let addButtonInRow = newFacilityRow.querySelector('.add-facility-btn');
+            if (addButtonInRow) {
+                addButtonInRow.remove();
+            }
 
-    // Clone the last facility row
-    let newFacilityRow = facilityRows[facilityRows.length - 1].cloneNode(true);
+            // Append the new facility row
+            facilitiesContainer.appendChild(newFacilityRow);
 
-    // Update the name attribute for the new row
-    newFacilityRow.querySelectorAll('input, textarea').forEach(input => {
-        let name = input.getAttribute('name');
-        if (name) {
-            let updatedName = name.replace(/\[facilities\]\[\d+\]/, `[facilities][${newIndx}]`);
-            input.setAttribute('name', updatedName);
-            input.value = ''; // Clear the value
+            // Update the facility count
+            button.setAttribute('data-fac-count', newIndx);
         }
-    });
 
-    let addButtonInRow = newFacilityRow.querySelector('.add-facility-btn');
-    if (addButtonInRow) {
-        addButtonInRow.remove();
-    }
+        function removeFacility(button) {
+            let facilityRow = button.closest('.facility-row');
+            let facilitiesContainer = button.closest('.facilities');
+            if (facilitiesContainer.querySelectorAll('.facility-row').length > 1) {
+                facilityRow.remove();
+            } else {
+                alert("At least one facility is required!");
+            }
+        }
 
-    // Append the new facility row
-    facilitiesContainer.appendChild(newFacilityRow);
-
-    // Update the facility count
-    button.setAttribute('data-fac-count', newIndx);
-}
-
-function removeFacility(button) {
-    let facilityRow = button.closest('.facility-row');
-    let facilitiesContainer = button.closest('.facilities');
-    if (facilitiesContainer.querySelectorAll('.facility-row').length > 1) {
-        facilityRow.remove();
-    } else {
-        alert("At least one facility is required!");
-    }
-}
-
-function removeCard(button) {
-    let card = button.closest('.main-card');
-    card.remove();
-}
+        function removeCard(button) {
+            let card = button.closest('.main-card');
+            card.remove();
+        }
 
 
-// $(document).ready(function () {
-//     $('#galleryInput').on('change', function () {
-//         const previewContainer = $('#imagePreview');
-//         previewContainer.empty(); // Clear previous previews
+        // $(document).ready(function () {
+        //     $('#galleryInput').on('change', function () {
+        //         const previewContainer = $('#imagePreview');
+        //         previewContainer.empty(); // Clear previous previews
 
-//         Array.from(this.files).forEach(file => {
-//             if (file.type.startsWith('image/')) {
-//                 const reader = new FileReader();
+        //         Array.from(this.files).forEach(file => {
+        //             if (file.type.startsWith('image/')) {
+        //                 const reader = new FileReader();
 
-//                 reader.onload = function (e) {
-//                     const imageBlock = $(`
-//                         <div class="media-image-holder position-relative" style="width:150px; height:100px; border:1px solid #ccc; border-radius:8px; display:flex; justify-content:center; align-items:center;">
-//                             <img src="${e.target.result}" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
-//                             <span class="inbtn inbtndelete" style="position:absolute; top: -10px; right: -10px; background:#f77f7fcf; color:white; padding:2px; cursor:pointer;">
-//                                 <i class="fa fa-times fa-fw"></i>
-//                             </span>
-//                         </div>
-//                     `);
+        //                 reader.onload = function (e) {
+        //                     const imageBlock = $(`
+    //                         <div class="media-image-holder position-relative" style="width:150px; height:100px; border:1px solid #ccc; border-radius:8px; display:flex; justify-content:center; align-items:center;">
+    //                             <img src="${e.target.result}" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+    //                             <span class="inbtn inbtndelete" style="position:absolute; top: -10px; right: -10px; background:#f77f7fcf; color:white; padding:2px; cursor:pointer;">
+    //                                 <i class="fa fa-times fa-fw"></i>
+    //                             </span>
+    //                         </div>
+    //                     `);
 
-//                     // Remove image preview on delete icon click
-//                     imageBlock.find('.inbtndelete').on('click', function () {
-//                         imageBlock.remove();
-//                     });
+        //                     // Remove image preview on delete icon click
+        //                     imageBlock.find('.inbtndelete').on('click', function () {
+        //                         imageBlock.remove();
+        //                     });
 
-//                     previewContainer.append(imageBlock);
-//                 };
+        //                     previewContainer.append(imageBlock);
+        //                 };
 
-//                 reader.readAsDataURL(file); // Convert image to base64 for preview
-//             }
-//         });
-//     });
-// });
+        //                 reader.readAsDataURL(file); // Convert image to base64 for preview
+        //             }
+        //         });
+        //     });
+        // });
 
 
 
-$(document).ready(function () {
-    let selectedFiles = [];
+        $(document).ready(function() {
+            let selectedFiles = [];
 
-    $('#galleryInput').on('change', function (e) {
-        const newFiles = Array.from(e.target.files);
-        const fileInput = $(this)[0];
+            $('#galleryInput').on('change', function(e) {
+                const newFiles = Array.from(e.target.files);
+                const fileInput = $(this)[0];
 
-        // Append new files to selectedFiles array
-        newFiles.forEach(file => {
-            if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
-                selectedFiles.push(file);
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const imageBlock = $(`
+                // Append new files to selectedFiles array
+                newFiles.forEach(file => {
+                    if (!selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                        selectedFiles.push(file);
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const imageBlock = $(`
                         <div class="media-image-holder position-relative" style="width:150px; height:100px; border:1px solid #ccc; border-radius:8px; display:flex; justify-content:center; align-items:center;">
                             <img src="${e.target.result}" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
                             <span class="inbtn inbtndelete" style="position:absolute; top:-10px; right:-10px; background:#f77f7fcf; color:white; padding:2px; cursor:pointer;">
@@ -731,44 +736,45 @@ $(document).ready(function () {
                         </div>
                     `);
 
-                    // Remove preview and update selected files list
-                    imageBlock.find('.inbtndelete').on('click', function () {
-                        selectedFiles = selectedFiles.filter(f => f.name !== file.name || f.size !== file.size);
-                        imageBlock.remove();
-                        updateFileInput();
-                    });
+                            // Remove preview and update selected files list
+                            imageBlock.find('.inbtndelete').on('click', function() {
+                                selectedFiles = selectedFiles.filter(f => f.name !==
+                                    file.name || f.size !== file.size);
+                                imageBlock.remove();
+                                updateFileInput();
+                            });
 
-                    $('#imagePreview').append(imageBlock);
-                };
-                reader.readAsDataURL(file);
+                            $('#imagePreview').append(imageBlock);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                updateFileInput();
+            });
+
+            // Function to update file input with selected files
+            function updateFileInput() {
+                const dataTransfer = new DataTransfer();
+                selectedFiles.forEach(file => dataTransfer.items.add(file));
+                $('#galleryInput')[0].files = dataTransfer.files;
+
+                // Update file count display
+                $('#fileCount').text(`${selectedFiles.length} files selected`);
             }
         });
 
-        updateFileInput();
-    });
-
-    // Function to update file input with selected files
-    function updateFileInput() {
-        const dataTransfer = new DataTransfer();
-        selectedFiles.forEach(file => dataTransfer.items.add(file));
-        $('#galleryInput')[0].files = dataTransfer.files;
-
-        // Update file count display
-        $('#fileCount').text(`${selectedFiles.length} files selected`);
-    }
-});
 
 
+        $(document).ready(function() {
+            $('#featureImageInput').on('change', function(e) {
+                const file = e.target.files[0];
 
-$(document).ready(function () {
-    $('#featureImageInput').on('change', function (e) {
-        const file = e.target.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
 
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                const imageBlock = $(`
+                    reader.onload = function(e) {
+                        const imageBlock = $(`
                     <div class="media-image-holder position-relative" style="width:150px; height:150px; border:1px solid #ccc; border-radius:8px; overflow:hidden; display:flex; justify-content:center; align-items:center;">
                         <img src="${e.target.result}" alt="Feature Image" style="width:100%; height:100%; object-fit:cover;">
                         <span class="inbtn inbtndelete" style="position:absolute; top:-10px; right:-10px; background:red; color:white; border-radius:50%; padding:4px; cursor:pointer;">
@@ -777,21 +783,27 @@ $(document).ready(function () {
                     </div>
                 `);
 
-                // Remove feature image preview and reset input
-                imageBlock.find('.inbtndelete').on('click', function () {
-                    imageBlock.remove();
-                    $('#featureImageInput').val('');
-                });
+                        // Remove feature image preview and reset input
+                        imageBlock.find('.inbtndelete').on('click', function() {
+                            imageBlock.remove();
+                            $('#featureImageInput').val('');
+                        });
 
-                $('#featureImagePreview').html(imageBlock); // Replace previous image
-            };
+                        $('#featureImagePreview').html(imageBlock); // Replace previous image
+                    };
 
-            reader.readAsDataURL(file);
-        }
-    });
-});
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
 
+        var $jq = jQuery.noConflict(); // Assign jQuery to a new variable
 
-
+        $jq(document).ready(function() {
+            $jq('.select2').select2({
+                tags: true,
+                tokenSeparators: [',']
+            });
+        });
     </script>
 @endsection

@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SitesettingController;
 use App\Http\Controllers\Frontend\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
+use App\Http\Controllers\Frontend\Auth\VerifyController;
 use App\Http\Controllers\Frontend\Dashboard\DashboardController as DashboardDashboardController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,17 @@ Route::get('/offer', function () {
 
 Route::get('/signin',[AuthLoginController::class, 'index'])->name('singin');
 Route::get('/signup',[RegisterController::class, 'index'])->name('singup');
+
+// Register verification
+Route::get('verify',[AuthLoginController::class, 'verify'])->name('verify');
+Route::post('verifyotp',[AuthLoginController::class, 'verifyotp'])->name('verifyotp');
+
+// forgot password and reset password
+Route::get('forgetpassword_view',[VerifyController::class, 'forgetpassword_view'])->name('forgetpassword_view');
+Route::post('forgetpassword',[VerifyController::class, 'forgetpassword'])->name('forgetpassword');
+Route::get('resetpassword_view',[VerifyController::class, 'resetpassword_view'])->name('resetpassword_view');
+Route::get('resetpassword',[VerifyController::class, 'resetpassword'])->name('resetpassword');
+Route::get('resendotp',[VerifyController::class, 'resendotp'])->name('resendotp');
 
 Route::get('user/dashboard',[DashboardDashboardController::class, 'dashboard'])->name('user.dashboard');
 

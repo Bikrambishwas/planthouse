@@ -25,7 +25,7 @@ class Categories extends Model
 
     public function children()
     {
-        return $this->hasMany(Categories::class, 'parent');
+        return $this->hasMany(Categories::class, 'parent')->with('children');
     }
 
     public function parentFeature()

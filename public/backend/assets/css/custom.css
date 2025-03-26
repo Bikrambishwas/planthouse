@@ -147,13 +147,11 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     align-items: center;
 }
 
-
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
-
 
 .sorting-boxs-option-outer {
     margin-left: 50px;
@@ -173,7 +171,8 @@ div.table-responsive > div.dataTables_wrapper > div.row {
 }
 
 .sorting-boxs-outer {
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     padding: 25px;
     background: #ffffff;
 }
@@ -182,7 +181,6 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     transform: translate(-0.1rem, -1ex);
     transition: all 0.5s ease-in-out;
 }
-
 
 .cat-menu {
     list-style: none;
@@ -213,7 +211,6 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     width: 25px;
 }
 
-
 .media-holder {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -227,3 +224,27 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     position: relative;
 }
 
+.menu-main {
+    max-height: 528px;
+    overflow-y: scroll;
+}
+/*category menu*/
+.menu-main ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-main ul li {
+    padding: 4px 25px;
+}
+
+.menu-main ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.sub-menu {
+    display: block; /* Show all submenus by default */
+    margin-left: 20px; /* Adjust as needed */
+}
