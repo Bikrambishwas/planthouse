@@ -3,7 +3,7 @@ dd {
 }
 
 dt {
-   font-weight: 400;
+    font-weight: 400;
 }
 
 .canvas-header {
@@ -162,15 +162,13 @@ dt {
 
 /* quantitty */
 
-
 .quantity-cart {
     width: auto;
-    padding: .2rem 0;
-    border-radius: min(4px, .2rem);
+    padding: 0.2rem 0;
+    border-radius: min(4px, 0.2rem);
     position: relative;
     display: flex;
     align-items: center;
-
 }
 
 .quantity__button-cart {
@@ -188,13 +186,13 @@ dt {
     align-items: center;
     justify-content: center;
     color: rgba(33, 35, 38, 1);
-    transition: color .25s ease;
+    transition: color 0.25s ease;
 }
 
 .quantity__button-cart .icon {
-    flex: 0 0 .8rem;
-    width: .8rem;
-    height: .8rem;
+    flex: 0 0 0.8rem;
+    width: 0.8rem;
+    height: 0.8rem;
     color: rgba(33, 35, 38, 1);
     pointer-events: none;
     position: relative;
@@ -209,7 +207,7 @@ dt {
     color: rgba(33, 35, 38, 1);
     font-family: inherit;
     font-weight: 500;
-    opacity: .85;
+    opacity: 0.85;
     text-align: center;
     background-color: transparent;
     border: 0;
@@ -365,8 +363,8 @@ dt {
 }
 
 .accordion-button:focus {
-   border: none;
-   box-shadow: none;
+    border: none;
+    box-shadow: none;
 }
 
 .accordion-body {
@@ -393,8 +391,7 @@ dt {
 
 .link-with-icon {
     background-image: none;
-    display: inline-flex
-;
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
     white-space: nowrap;
@@ -403,7 +400,6 @@ dt {
 .link--text {
     color: rgb(var(--color-foreground));
 }
-
 
 .link {
     font-family: inherit;
@@ -416,15 +412,15 @@ dt {
     text-decoration: none;
     color: black;
     background-color: transparent;
-    background-image: linear-gradient(to top, rgb(var(--color-border)) 0px 0px), linear-gradient(to top, transparent 0px, transparent 0px);
+    background-image: linear-gradient(to top, rgb(var(--color-border)) 0px 0px),
+        linear-gradient(to top, transparent 0px, transparent 0px);
     background-repeat: no-repeat;
     background-position: right bottom, right bottom;
-    background-size: 0% .1rem, 100% .1rem;
+    background-size: 0% 0.1rem, 100% 0.1rem;
     transition-property: background-size;
     transition-timing-function: ease;
     transition-duration: var(--duration-default);
 }
-
 
 .link-with-icon .icon {
     width: 1.8rem;
@@ -437,6 +433,104 @@ dt {
     margin: 0 auto;
     text-align: center;
     padding: 15px;
+}
+
+/* Price Filter */
+.price-filter-wrapper {
+    padding: 25px 25px 25px;
+}
+
+.price-input {
+    width: 100%;
+    display: flex;
+    margin: 30px 0 35px;
+}
+.price-input .field {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+}
+.field input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 19px;
+    margin-left: 12px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #999;
+    -moz-appearance: textfield;
+}
+/* input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+} */
+
+.quantity__input-cart::-webkit-outer-spin-button,
+.quantity__input-cart::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.price-input-field::-webkit-outer-spin-button,
+.price-input-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.price-input .separator {
+    width: 130px;
+    display: flex;
+    font-size: 19px;
+    align-items: center;
+    justify-content: center;
+}
+.price-slider {
+    height: 5px;
+    position: relative;
+    background: #ddd;
+    border-radius: 5px;
+}
+.price-slider .price-progress {
+    height: 100%;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background: #17a2b8;
+}
+.range-input {
+    position: relative;
+}
+.range-input input {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #17a2b8;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+input[type="range"]::-moz-range-thumb {
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: #17a2b8;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
 @container (max-width: 660px) {
@@ -466,17 +560,15 @@ dt {
     }
 }
 
-
-
 .login-container {
     margin: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     /* height: 100vh; */
-  }
+}
 
-  .login-card {
+.login-card {
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -485,85 +577,83 @@ dt {
     text-align: center;
     padding: 40px;
     box-sizing: border-box;
-  }
+}
 
-  .login-card h1 {
+.login-card h1 {
     color: #343a40;
     margin-bottom: 30px;
-  }
+}
 
-  .login-form {
+.login-form {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .login-form input {
+.login-form input {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
     box-sizing: border-box;
     border: 1px solid #dee2e6;
     border-radius: 4px;
-  }
+}
 
-  .login-buttons {
+.login-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  .login-button,
-  .register-button {
+.login-button,
+.register-button {
     flex: 48%;
     padding: 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
-  }
+}
 
-  .login-button {
+.login-button {
     background: #029354;
     color: #fff;
     margin-right: 5px;
-  }
+}
 
-  .register-button {
+.register-button {
     /* border: 1px solid #007bff;
     color: #007bff; */
     color: #029354;
     margin-left: 5px;
-  }
+}
 
-  /* .login-button:hover {
+/* .login-button:hover {
     background: #0056b3;
   } */
 
-
-  .social-login{
-    display:block;
-    width:100%;
+.social-login {
+    display: block;
+    width: 100%;
     margin: 5px auto;
-    text-decoration:none;
-    padding:10px 15px;
-    color:#fff;
-    border-radius:3px;
-    margin-bottom:10px;
-    transition:all .3s ease-in-out;
-  }
-  .social-login:hover{
-      box-shadow:0 10px 15px -5px rgba(0,0,0,0.4);
-  }
-  a.fb-login{
-    background-color:#3B5998;
-  }
-  a.google-login{
-    background-color:#db4437;
-  }
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.social-login:hover {
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+}
+a.fb-login {
+    background-color: #3b5998;
+}
+a.google-login {
+    background-color: #db4437;
+}
 
-
-  /* blog */
-  .categories-wrapper {
+/* blog */
+.categories-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -572,7 +662,7 @@ dt {
     margin: 0 auto;
 }
 
-  .categories-section-category {
+.categories-section-category {
     text-align: center;
     flex: 1 1 calc(33.33% - 20px);
     max-width: calc(33.33% - 20px);
@@ -622,7 +712,6 @@ dt {
     margin: 10px;
 }
 
-
 .categories-section-button {
     padding: 5px 20px;
     background-color: #049355;
@@ -637,21 +726,21 @@ dt {
     margin: 10px 0;
     font-size: 24px;
     font-weight: 400;
-    color: #0A4C36;
+    color: #0a4c36;
     line-height: 38.8px;
 }
- @media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .categories-section-category {
         text-align: center;
-        flex: 1 1 calc(50.00% - 20px);
-        max-width: calc(50.00% - 20px);
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
         position: relative;
     }
- }
+}
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .login-card {
-      width: 100%;
+        width: 100%;
     }
 
     /* .login-buttons {
@@ -660,20 +749,17 @@ dt {
 
     .login-button,
     .register-button {
-      flex: 100%;
-      margin-bottom: 10px;
-      margin-left: 0;
-      margin-right: 0;
+        flex: 100%;
+        margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .login-container {
         margin: 15px;
     }
+}
 
-  }
-
-
-
-  .form-control {
+.form-control {
     background-color: #ededed;
-  }
+}
