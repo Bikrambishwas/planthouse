@@ -184,7 +184,6 @@ class ProductController extends Controller
                }
            }
 
-
            $galleryImages = $currentImages;
            $G_images = (array) $request->file('gallery_images');
            foreach ($G_images as $G_image) {

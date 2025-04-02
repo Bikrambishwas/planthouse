@@ -437,7 +437,7 @@ dt {
 
 /* Price Filter */
 .price-filter-wrapper {
-    padding: 25px 25px 25px;
+    padding: 25px 60px 25px 0px;
 }
 
 .price-input {
@@ -600,7 +600,7 @@ input[type="range"]::-moz-range-thumb {
 .paginate a {
     color: black;
     float: left;
-    padding: 0px 5px;
+    padding: 4px 20px;
     text-decoration: none;
     transition: background-color 0.3s;
     border: 1px solid #ddd;

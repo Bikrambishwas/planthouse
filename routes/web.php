@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
 use App\Http\Controllers\Frontend\Auth\VerifyController;
 use App\Http\Controllers\Frontend\Dashboard\DashboardController as DashboardDashboardController;
+use App\Models\Admin\Categories;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,8 @@ Route::get('/', function () {
 });
 
 Route::get('/collection', function () {
-    return view('frontend.pages.collection');
+    $categories = Categories::where('parent', 0)->with('children')->get();
+    return view('frontend.pages.collection',compact('categories'));
 });
 
 Route::get('/singleproduct', function () {
