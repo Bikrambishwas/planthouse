@@ -177,10 +177,10 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     background: #ffffff;
 }
 
-.sorting-boxs-outer:hover {
+/* .sorting-boxs-outer:hover {
     transform: translate(-0.1rem, -1ex);
     transition: all 0.5s ease-in-out;
-}
+} */
 
 .cat-menu {
     list-style: none;
@@ -247,4 +247,13 @@ div.table-responsive > div.dataTables_wrapper > div.row {
 .sub-menu {
     display: block; /* Show all submenus by default */
     margin-left: 20px; /* Adjust as needed */
+}
+
+.select2-container--default
+    .select2-selection--multiple
+    .select2-selection__choice__remove {
+    font-size: 1.3em !important;
+    top: 2px !important;
+    left: -10px !important;
+    background-color: white !important;
 }

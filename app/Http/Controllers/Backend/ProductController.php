@@ -25,10 +25,28 @@ class ProductController extends Controller
         return view('backend.product.index',compact('products'));
     }
 
+    public function get_keyword()
+    {
+        $final_keywords = [];
+        $keywords = Products::select('keyword')->get();
+        $keywords = $keywords->toArray();
+        foreach ($keywords as $keyword) :
+            if (!is_null($keyword['keyword'])) :
+                $original = unserialize($keyword['keyword']);
+                if (!empty($original)) {
+                    $final_keywords = array_unique(array_merge($final_keywords, $original));
+                    sort($final_keywords);
+                }
+            endif;
+        endforeach;
+        return $final_keywords;
+    }
+
     public function add()
     {
         $categories = Categories::where('parent', '0')->with('children')->get();
-        return view('backend.product.add',compact('categories'));
+        $keywords = $this->get_keyword();
+        return view('backend.product.add',compact('categories','keywords'));
     }
 
     public function store(Request $request)
@@ -49,7 +67,8 @@ class ProductController extends Controller
                'details' => '',
                'marked_price' => '',
                'selling_price' => '',
-               'category_id'=>''
+               'category_id'=>'',
+               'keyword' => ''
           ]);
 
           if ($validator->fails()) {
@@ -117,6 +136,16 @@ class ProductController extends Controller
         }
           $validatedData['details'] = $plans;
 
+          $validatedData['keyword'] = '';
+          if (isset($request->keyword)) {
+              $final = [];
+              foreach ($request->keyword as $keyword) :
+                  $final[] = ucwords(strtolower($keyword));;
+              endforeach;
+              $validatedData['keyword'] = serialize($final);
+          }
+
+
           $this->product->store($validatedData);
           return response()->json(['message' => 'Added Successfully']);
     }
@@ -126,11 +155,13 @@ class ProductController extends Controller
         $row = Products::find($id);
         $galleri_images = json_decode($row->gallery_images, true);
         $categories = Categories::where('parent', '0')->with('children')->get();
-        return view('backend.product.edit',compact('row','galleri_images','categories'));
+        $keywords = $this->get_keyword();
+        return view('backend.product.edit',compact('row','galleri_images','categories','keywords'));
     }
 
     public function update($id, Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             'slug' => '',
@@ -146,7 +177,8 @@ class ProductController extends Controller
                'details' => '',
                 'marked_price' => '',
                'selling_price' => '',
-               'category_id'=>''
+               'category_id'=>'',
+               'keyword' => ''
 
        ]);
 
@@ -202,6 +234,15 @@ class ProductController extends Controller
           $validatedData['gallery_image'] = json_encode($galleryImages);
 
 
+
+        $validatedData['keyword'] = '';
+        if (isset($request->keyword)) {
+              $final = [];
+              foreach ($request->keyword as $keyword) :
+                  $final[] = ucwords(strtolower($keyword));
+              endforeach;
+              $validatedData['keyword'] = serialize($final);
+        }
 
        $this->product->update($id,$validatedData);
        return response()->json(['message' => 'Updated Successfully']);

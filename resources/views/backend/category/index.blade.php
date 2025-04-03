@@ -1,6 +1,5 @@
 @extends('backend.app')
 @section('content')
-
     <!--PAGE HEADER-->
     <div class="contents">
         <div class="row">
@@ -23,71 +22,70 @@
     <!--PAGE HEADER-->
     {{-- ENd of Header --}}
 
-        <div class="row mt-2">
-            <div class="col-md-12">
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="">
                 <div class="">
-                    <div class="">
-                        <div class="sortable_main_box grid-2">
-                            @foreach ($categories as $index => $item)
-                                <div class="sorting-boxs-outer">
-                                    <div class="sorting-boxs" data-position="{{ $item->position }}"
-                                        data-index="{{ $item->id }}">
-                                        <div>{{ ++$index }}</div>
-                                        <div style="font-weight: bold;">{{ $item->title }}</div>
-                                        <div>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item opencanvasform-category"
-                                                            data-id="{{ $item->id }}" data-bs-toggle="offcanvas"
-                                                            data-bs-target="#offcanvasScrolledit{{ $item->id }}"><i
-                                                                class="fa-sharp fa-solid fa-pen-to-square"></i> Edit</a>
-                                                    </li>
+                    <div class="sortable_main_box grid-2">
+                        @foreach ($categories as $index => $item)
+                            <div class="sorting-boxs-outer">
+                                <div class="sorting-boxs" data-position="{{ $item->position }}"
+                                    data-index="{{ $item->id }}">
+                                    <div>{{ ++$index }}</div>
+                                    <div style="font-weight: bold;">{{ $item->title }}</div>
+                                    <div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">Action</button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item opencanvasform-category"
+                                                        data-id="{{ $item->id }}" data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasScrolledit{{ $item->id }}"><i
+                                                            class="fa-sharp fa-solid fa-pen-to-square"></i> Edit</a>
+                                                </li>
 
-                                                    <li>
-                                                        <a class="dropdown-item confirm_delete"
-                                                            href="{{ route('admin.category.delete', $item->id) }}"><i
-                                                                class="fa-solid fa-trash"></i> Delete</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sorting-boxs-option-outer">
-                                        <div class="sortable-boxs-optionss">
-                                            @foreach ($item->children as $coindex => $co)
-                                                <div class="sorting-boxs-option-box" data-position="{{ $co['position'] }}"
-                                                    data-index="{{ $co->id }}">
-                                                    <div><i class="fa-solid fa-up-down-left-right"></i></div>
-                                                    <div> {{ $co->title }}
-                                                    </div>
-                                                    <div>
-                                                        <div class="btn-group">
-                                                                <a class="dropdown-item opencanvasform-category"
-                                                                        data-id="{{ $co->id }}"
-                                                                        data-bs-toggle="offcanvas"
-                                                                        data-bs-target="#offcanvasScrolledit{{ $co->id }}"><i
-                                                                            class="fa-sharp fa-solid fa-pen-to-square"></i>
-                                                                        </a>
-                                                                <a class="dropdown-item confirm_delete"
-                                                                        href="{{ route('admin.category.delete', $co->id) }}"><i
-                                                                            class="fa-solid fa-trash"></i> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
+                                                <li>
+                                                    <a class="dropdown-item confirm_delete"
+                                                        href="{{ route('admin.category.delete', $item->id) }}"><i
+                                                            class="fa-solid fa-trash"></i> Delete</a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-
-
+                                <div class="sorting-boxs-option-outer">
+                                    <div class="sortable-boxs-optionss">
+                                        @foreach ($item->children as $coindex => $co)
+                                            <div class="sorting-boxs-option-box" data-position="{{ $co['position'] }}"
+                                                data-index="{{ $co->id }}">
+                                                <div><i class="fa-solid fa-up-down-left-right"></i></div>
+                                                <div> {{ $co->title }}
+                                                </div>
+                                                <div>
+                                                    <div class="btn-group">
+                                                        <a class="dropdown-item opencanvasform-category"
+                                                            data-id="{{ $co->id }}" data-bs-toggle="offcanvas"
+                                                            data-bs-target="#offcanvasScrolledit{{ $co->id }}"><i
+                                                                class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                                        </a>
+                                                        <a class="dropdown-item confirm_delete"
+                                                            href="{{ route('admin.category.delete', $co->id) }}"><i
+                                                                class="fa-solid fa-trash"></i> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
+
+
                 </div>
             </div>
         </div>
+    </div>
 
     {{-- Add New Feature --}}
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasScroll" aria-labelledby="offcanvasScrollLabel">
@@ -102,34 +100,35 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
-                            <div class="mb-2">
-                                <label class="form-label">Title</label>
-                                <input type="text" class="form-control" name="title">
-                                <span class="invalid-feedback title_error"></span>
+                        <div class="mb-2">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control" name="title">
+                            <span class="invalid-feedback title_error"></span>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Choose Parent</label>
+                            <select class="form-control" name="parent">
+                                <option value="0">Its Parent itself</option>
+                                @foreach ($parents as $k => $p_title)
+                                    <option value="{{ $k }}">{{ $p_title }}</option>
+                                @endforeach
+                            </select>
+                            <div class="form-text">Choose Parent</div>
+                            <span class="invalid-feedback parent_error"></span>
+                        </div>
+                        <div class="mb-2">
+                            <div class="dashed-box">
+                                <img src="" id="preview-image" alt="Preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
-                            <div class="mb-2">
-                                <label class="form-label">Choose Parent</label>
-                                <select class="form-control" name="parent">
-                                    <option value="0">Its Parent itself</option>
-                                    @foreach ($parents as $k => $p_title)
-                                        <option value="{{ $k }}">{{ $p_title }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="form-text">Choose Parent</div>
-                                <span class="invalid-feedback parent_error"></span>
-                            </div>
-                            <div class="mb-2">
-                                <div class="dashed-box">
-                                    <img src="" id="preview-image" alt="Preview" style="max-width: 100%; height: auto;">
-                                </div>
-                                <label class="form-label">Image</label>
-                                <input type="file" class="form-control" id="image-input" name="image">
-                                <span class="invalid-feedback image_error"></span>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary mt-2 d-grid w-100"
-                                    id="liveToastBtn">submit</button>
-                            </div>
+                            <label class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image-input" name="image">
+                            <span class="invalid-feedback image_error"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary mt-2 d-grid w-100"
+                                id="liveToastBtn">submit</button>
+                        </div>
 
                     </div>
                 </div>
@@ -160,7 +159,8 @@
                 <div class="mb-1">
                     <label for="category_slug" class="form-label">Slug
                     </label>
-                    <input name="slug" type="text" id="category_slug" class="form-control" value="" readonly>
+                    <input name="slug" type="text" id="category_slug" class="form-control" value=""
+                        readonly>
                     <span class="invalid-feedback slug_error"></span>
                 </div>
 
@@ -180,7 +180,7 @@
                 </div>
                 <div class="mb-1">
                     <div class="dashed-box">
-                       <img src="" alt="" id="editshowimage" style="width: 120px; height: auto;">
+                        <img src="" alt="" id="editshowimage" style="width: 120px; height: auto;">
                     </div>
                     <label for="category_image" class="form-label">Image
                     </label>
@@ -200,13 +200,14 @@
     {{-- End of Edit section====================================================================================== --}}
     {{-- ====================================================================================================== --}}
     <script>
-     $(document).ready(function() {
+        $(document).ready(function() {
             $('.dashed-box').hide(); // Hide the dashed box initially
 
             $('#image-input').on('change', function(event) {
                 let reader = new FileReader();
                 reader.onload = function(e) {
-                    $('#preview-image').attr('src', e.target.result).show(); // Set image src and make it visible
+                    $('#preview-image').attr('src', e.target.result)
+                        .show(); // Set image src and make it visible
                     $('.dashed-box').fadeIn(); // Smoothly show the dashed box
                 };
                 if (event.target.files.length > 0) {
@@ -285,9 +286,10 @@
                         $("#row_idcategory").val(result.row.id);
                         if (result.row.image != null) {
                             $('.dashed-box').show();
-                            $("#editshowimage").attr('src', 'http://127.0.0.1:8000/uploads/category_images/' +
-                            result.row
-                            .image);
+                            $("#editshowimage").attr('src',
+                                'http://127.0.0.1:8000/uploads/category_images/' +
+                                result.row
+                                .image);
                         } else {
                             $('.dashed-box').hide();
                         }
@@ -297,89 +299,6 @@
             });
 
         });
-
-        // Update Position
-        $(document).ready(function() {
-            $(".sortable-boxs-optionss").sortable({
-                update: function(event, ui) {
-                    $(this).children().each(function(index) {
-                        if ($(this).attr('data-position') != (index + 1)) {
-                            //alert('asfasfa');
-                            //console.log();
-                            $(this).attr('data-position', (index + 1)).addClass('updated');
-                        }
-                    });
-                    saveNewPositionsOptions();
-                }
-            });
-        });
-
-        function saveNewPositionsOptions() {
-            var positions = [];
-            $('.updated').each(function() {
-                positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
-                $(this).removeClass('updated');
-            });
-
-
-            // console.log(positions);
-
-            var tokendata = "{{ csrf_token() }}";
-            $.ajax({
-                type: 'POST',
-                url: '/admin/category/ajax_position',
-                data: {
-                    _token: tokendata,
-                    update: 'Yes',
-                    positions: positions
-                },
-                beforeSend: function() {},
-                success: function(response) {
-                    $('.success-toast-message').html(response.message);
-                    const toast = new bootstrap.Toast('.success-toast')
-                    toast.show();
-                }
-            });
-        }
-
-
-        $(document).ready(function() {
-            $(".sortable_main_box").sortable({
-                update: function(event, ui) {
-                    $(this).children().each(function(index) {
-                        if ($(this).attr('data-position') != (index + 1)) {
-                            $(this).attr('data-position', (index + 1)).addClass('updated');
-                        }
-                    });
-                    saveNewPositions();
-                }
-            });
-        });
-
-        function saveNewPositions() {
-            var positions = [];
-            $('.updated').each(function() {
-                positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
-                $(this).removeClass('updated');
-            });
-            var tokendata = "{{ csrf_token() }}";
-            $.ajax({
-                type: 'POST',
-                url: '/admin/category/position',
-                data: {
-                    _token: tokendata,
-                    update: 'Yes',
-                    positions: positions
-                },
-                beforeSend: function() {},
-                success: function(response) {
-                    $('.success-toast-message').html(response.message);
-                    const toast = new bootstrap.Toast('.success-toast')
-                    toast.show();
-                }
-            });
-        }
-        // Update postiion end here
 
         // Udpate service or for validation
         $('.updatecategory').submit(function(e) {
@@ -420,6 +339,90 @@
                 }
             });
         });
-    </script>
 
+
+        // Update Position
+        var $j = jQuery.noConflict();
+        $j(document).ready(function() {
+            $j(".sortable-boxs-optionss").sortable({
+                update: function(event, ui) {
+                    $j(this).children().each(function(index) {
+                        if ($j(this).attr('data-position') != (index + 1)) {
+                            //alert('asfasfa');
+                            //console.log();
+                            $j(this).attr('data-position', (index + 1)).addClass('updated');
+                        }
+                    });
+                    saveNewPositionsOptions();
+                }
+            });
+        });
+
+        function saveNewPositionsOptions() {
+            var positions = [];
+            $('.updated').each(function() {
+                positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
+                $(this).removeClass('updated');
+            });
+
+
+            // console.log(positions);
+
+            var tokendata = "{{ csrf_token() }}";
+            $.ajax({
+                type: 'POST',
+                url: '/admin/category/ajax_position',
+                data: {
+                    _token: tokendata,
+                    update: 'Yes',
+                    positions: positions
+                },
+                beforeSend: function() {},
+                success: function(response) {
+                    $('.success-toast-message').html(response.message);
+                    const toast = new bootstrap.Toast('.success-toast')
+                    toast.show();
+                }
+            });
+        }
+
+        var $k = jQuery.noConflict();
+        $k(document).ready(function() {
+            $k(".sortable_main_box").sortable({
+                update: function(event, ui) {
+                    $k(this).children().each(function(index) {
+                        if ($k(this).attr('data-position') != (index + 1)) {
+                            $k(this).attr('data-position', (index + 1)).addClass('updated');
+                        }
+                    });
+                    saveNewPositions();
+                }
+            });
+        });
+
+        function saveNewPositions() {
+            var positions = [];
+            $('.updated').each(function() {
+                positions.push([$(this).attr('data-index'), $(this).attr('data-position')]);
+                $(this).removeClass('updated');
+            });
+            var tokendata = "{{ csrf_token() }}";
+            $.ajax({
+                type: 'POST',
+                url: '/admin/category/position',
+                data: {
+                    _token: tokendata,
+                    update: 'Yes',
+                    positions: positions
+                },
+                beforeSend: function() {},
+                success: function(response) {
+                    $('.success-toast-message').html(response.message);
+                    const toast = new bootstrap.Toast('.success-toast')
+                    toast.show();
+                }
+            });
+        }
+        // Update postiion end here
+    </script>
 @endsection

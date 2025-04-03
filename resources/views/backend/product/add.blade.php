@@ -243,11 +243,14 @@
                 <div class="card mt-2">
                     <h5 class="card-header">Keywords</h5>
                     <div class="card-body">
-                        <div class="row mx-auto">
-                            <select class="select2 form-select" name="keywords[]" style="width: 100%;"
+                        <div class="row">
+                            <select class="select2 form-select" name="keyword[]" style="width: 100%;"
                                 multiple="multiple">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
+                                @foreach ($keywords as $keyword)
+                                    <option value="{{ $keyword }}"
+                                        {{ in_array($keyword, old('keyword', [])) ? 'selected' : '' }}>
+                                        {{ $keyword }}</option>
+                                @endforeach
                             </select>
                             <div class="sub-text">Please select or type the keywords</div>
                         </div>
