@@ -53,6 +53,10 @@ Route::get('/offer', function () {
     return view('frontend.pages.offer');
 });
 
+Route::get('/contact', function () {
+    return view('frontend.pages.contact');
+});
+
 
 
 Route::get('/signin',[AuthLoginController::class, 'index'])->name('singin');
