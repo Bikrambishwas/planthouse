@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\AccountController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\PageController;
@@ -130,6 +131,14 @@ Route::get('user/dashboard',[DashboardDashboardController::class, 'dashboard'])-
     Route::get('blog/edit/{id}',[BlogController::class, 'edit'])->name('blog.edit');
     Route::post('blog/update/{id}',[BlogController::class, 'update'])->name('blog.update');
     Route::get('blog/delete/{id}',[BlogController::class, 'destroy'])->name('blog.delete');
+
+    // faq
+Route::get('faq',[FaqController::class, 'index'])->name('faq');
+Route::post('faq/get_faq_row',[FaqController::class, 'get_faq_row'])->name('get_faq_row');
+Route::post('faq/create',[FaqController::class, 'store'])->name('faq.store');
+Route::post('faq/update/{id}',[FaqController::class, 'update'])->name('faq.update');
+Route::post('faq/position',[FaqController::class , 'position'])->name('faq.position');
+Route::get('faq/delete/{id}',[FaqController::class, 'destroy'])->name('faq.delete');
 
   });
 

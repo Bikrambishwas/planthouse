@@ -11,7 +11,6 @@
                      </span> --}}
                      <h2 class="brand-text">Mindworks Media</h2>
                      {{-- @endforeach --}}
-
                  </a></li>
              <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><svg
                          xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -41,8 +40,7 @@
                      </svg><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span></a>
 
              </li>
-
-             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='package'></i>
+             <li class="nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='package'></i>
                      Products</span></a>
              </li>
              <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
@@ -123,13 +121,16 @@
                      <i class="fa-solid fa-chart-simple"></i> Category</a>
              </li>
              <li><a class="@if (Route::is('admin.product')) active @endif" href="{{ route('admin.product') }}">
-                <i class="fa-solid fa-chart-simple"></i> Products</a>
+                     <i class="fa-solid fa-chart-simple"></i> Products</a>
              </li>
              <li><a class="@if (Route::is('admin.page')) active @endif" href="{{ route('admin.page') }}">
                      <i class="fa-regular fa-file"></i> Pages</a>
              </li>
              <li><a class="@if (Route::is('admin.blog')) active @endif" href="{{ route('admin.blog') }}">
-                <i class="fa-regular fa-file"></i> Blogs</a>
+                     <i class="fa-regular fa-file"></i> Blogs</a>
+             </li>
+             <li><a class="@if (Route::is('admin.faq')) active @endif" href="{{ route('admin.faq') }}">
+                     <i class="fa-solid fa-question"></i> Faqs</a>
              </li>
              {{-- <li class="menu-item ">
                  <a href="javascript:void(0)" class="menu-link menu-toggle">

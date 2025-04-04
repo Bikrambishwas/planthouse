@@ -153,6 +153,12 @@ div.table-responsive > div.dataTables_wrapper > div.row {
     gap: 40px;
 }
 
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
 .sorting-boxs-option-outer {
     margin-left: 50px;
     padding-left: 20px;

@@ -26,7 +26,7 @@
         <div class="col-md-12">
             <div class="">
                 <div class="">
-                    <div class="sortable_main_box grid-2">
+                    <div class="sortable_main_box grid-3">
                         @foreach ($categories as $index => $item)
                             <div class="sorting-boxs-outer">
                                 <div class="sorting-boxs" data-position="{{ $item->position }}"
@@ -45,9 +45,9 @@
                                                 </li>
 
                                                 <li>
-                                                    <a class="dropdown-item confirm_delete"
-                                                        href="{{ route('admin.category.delete', $item->id) }}"><i
-                                                            class="fa-solid fa-trash"></i> Delete</a>
+                                                    <a class="dropdown-item deletebtn" href="#"
+                                                        data-id="{{ $item->id }}"><i class="fa-solid fa-trash"></i>
+                                                        Delete</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -68,9 +68,9 @@
                                                             data-bs-target="#offcanvasScrolledit{{ $co->id }}"><i
                                                                 class="fa-sharp fa-solid fa-pen-to-square"></i>
                                                         </a>
-                                                        <a class="dropdown-item confirm_delete"
-                                                            href="{{ route('admin.category.delete', $co->id) }}"><i
-                                                                class="fa-solid fa-trash"></i> </a>
+                                                        <a class="dropdown-item deletebtn" href="#"
+                                                            data-id="{{ $co->id }}"><i class="fa-solid fa-trash"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,8 +80,6 @@
                             </div>
                         @endforeach
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -336,6 +334,51 @@
                     }
 
 
+                }
+            });
+        });
+
+        // delete category
+        $(document).on('click', '.deletebtn', function(e) {
+            e.preventDefault();
+            var catId = $(this).data('id');
+            swal({
+                title: 'Are you sure?',
+                text: 'This record and its details will be permanently deleted!',
+                icon: 'warning',
+                buttons: ["Cancel", "Yes!"],
+            }).then(function(value) {
+                if (value) {
+                    $.ajax({
+                        type: "GET",
+                        url: "/admin/category/delete/" + catId,
+                        success: function(response) {
+                            if (response.success) {
+                                $('.success-toast-message').html(response.message);
+                                const toast = new bootstrap.Toast('.success-toast')
+                                toast.show();
+                                setTimeout(function() {
+                                    window.location.reload();
+                                }, 2000); // 2-second delay
+                            } else {
+                                $('.danger-toast-message').html(response.message);
+                                const toast = new bootstrap.Toast('.danger-toast')
+                                toast.show();
+                                setTimeout(function() {
+                                    window.location.reload();
+                                }, 2000); // 2-second delay
+                            }
+                        },
+                        error: function() {
+                            $('.danger-toast-message').html(
+                                "There was an error processing the request.");
+                            const toast = new bootstrap.Toast('.danger-toast')
+                            toast.show();
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 2000); // 2-second delay
+                        }
+                    });
                 }
             });
         });

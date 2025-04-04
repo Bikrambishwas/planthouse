@@ -29,8 +29,8 @@
                                 <th style="width: 50px">SN</th>
                                 <th style="width: 120px">Image</th>
                                 <th>Title</th>
-                                <th>Keywords</th>
-                                <th style="width: 150px">Feature It</th>
+                                <th style="width: 180px">Keywords</th>
+                                <th style="width: 100px">Feature It</th>
                                 <th style="width: 100px">Status</th>
                                 <th style="width: 100px">Actions</th>
                             </tr>
