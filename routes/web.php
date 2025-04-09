@@ -57,6 +57,10 @@ Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
 
+Route::get('/aboutus', function () {
+    return view('frontend.pages.aboutus');
+});
+
 
 
 Route::get('/signin',[AuthLoginController::class, 'index'])->name('singin');

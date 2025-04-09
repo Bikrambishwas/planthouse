@@ -104,7 +104,7 @@
 
         </div>
     </section>
-    <section class="my-3 py-3">
+    <section class="my-3 py-5">
         <div class="container-lg">
             <div class="row">
                 <div class="col-md-7">

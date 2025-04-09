@@ -221,9 +221,13 @@ dt {
 }
 /* dashbaord */
 .dashboard-wrapper {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding: 90px 0px;
+}
+
+.form-control {
+    padding: 1rem 0.75rem;
 }
 
 /* text right */
@@ -845,6 +849,10 @@ a.google-login {
 .card-contact p {
     font-size: 14px;
     color: #777;
+}
+
+header {
+    background: #ffcfd7;
 }
 
 iframe {
